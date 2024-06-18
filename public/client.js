@@ -10,19 +10,13 @@ document.getElementById('startGameButton').addEventListener('click', () => {
     socket.emit('joinGame');
 });
 
-document.getElementById('backToMenuButton').addEventListener('click', () => {
-    console.log('back to menu')
-    document.getElementById('menu').style.display = 'block';
-    document.getElementById('game').style.display = 'none';
-    document.getElementById('gameover').style.display = 'none';
-    resetGame();
-});
-
-
-document.getElementById('backToMenuButton2').addEventListener('click', () => {
-    document.getElementById('menu').style.display = 'block';
-    document.getElementById('game').style.display = 'none';
-    document.getElementById('gameover').style.display = 'none';
+document.querySelectorAll('.backToMenuButton').forEach(button => {
+    button.addEventListener('click', () => {
+        document.getElementById('menu').style.display = 'block';
+        document.getElementById('game').style.display = 'none';
+        document.getElementById('gameover').style.display = 'none';
+        resetGame();
+    });
 });
 
 socket.on('waitingForOpponent', () => {
