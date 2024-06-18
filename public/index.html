@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Click Game</title>
+</head>
+<body>
+    <h1>Multiplayer Click Game</h1>
+    <div id="menu">
+        <button id="startGameButton">Start Game</button>
+    </div>
+
+
+    <div id="game" style="display: none;">
+        <p id="status">Waiting for an opponent...</p>
+        <button id="clickButton" disabled>Click Me!</button>
+        <p>Clicks: <span id="clickCount">0</span></p>
+        <p>Opponent Clicks: <span id="opponentClickCount">0</span></p>
+        <button class="backToMenuButton">Back to Menu</button>
+    </div>
+
+
+
+    <div id="gameover" style="display: none;">
+        <p id="winner"></p>
+        <button class="backToMenuButton">Back to Menu</button>
+    </div>
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
