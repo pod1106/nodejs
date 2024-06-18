@@ -12,10 +12,6 @@ let waitingPlayer = null;
 
 
 
-console.log('Express version:', express.version);
-console.log('Socket.io version:', socketIo.version);
-
-
 app.use(express.static('public'));
 
 io.on('connection', (socket) => {
