@@ -16,7 +16,7 @@ console.log('Express version:', express.version);
 console.log('Socket.io version:', socketIo.version);
 
 
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
