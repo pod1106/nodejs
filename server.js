@@ -5,7 +5,10 @@ const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
+
 const io = socketIo(server);
+io.origins('*:*'); 
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -13,7 +16,13 @@ let waitingPlayer = null;
 
 
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://nodejs-qd7f.onrender.com',
+    methods: ['GET', 'POST'],
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.static(__dirname));
 
 io.on('connection', (socket) => {
