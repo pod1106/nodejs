@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
@@ -12,7 +13,8 @@ let waitingPlayer = null;
 
 
 
-app.use(express.static('public'));
+app.use(cors());
+app.use(express.static(__dirname));
 
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
